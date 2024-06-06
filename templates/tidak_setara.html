@@ -1,0 +1,161 @@
+{% extends 'navbar.html' %}
+
+{% block head %}
+<head>
+    <meta charset="utf-8" />
+    <title>Hybrid Collaborative Filtering</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+{% endblock %}
+
+{% block body %}
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Hybrid Collaborative Filtering</h2>
+          <ol>
+            <li><a href="{{url_for('home')}}">Home</a></li>
+            <li><a href="{{url_for('home')}}#implementasi">Implementasi</a></li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    {% if display == 1 %}
+    <!-- ======= Portfolio Details Section ======= -->
+    <section class="portfolio-details" style=" padding-top: 10px;">
+    <div class="container box" style="font-family:Comic Sans MS;">
+        <div class="row justify-content-md-center" >
+        <div class="col-lg-12 text-center" >
+          <div class="portfolio-info">
+            <h4>Target User : {{target_user}} | Jumlah N : {{jumlah_n}} |  NDCG : {{hasil_ndcg}} </h4>
+          </div>
+          <div class="portfolio-info">
+            <h4>Metrik Evaluasi</h4> 
+                <p>
+        \( DCG_U(N) = \sum_{n=1}^N \frac{1}{\log_2(1+n)} \cdot 𝕝(\text{Top}_u(n) \in \text{GT}_U) \)
+    </p>
+    <p>
+        \( IDCG(N) = \sum_{n=1}^N \frac{1}{\log_2(1+n)} \)
+    </p>
+    <p>
+        \( NDCG_U(N) = \frac{DCG_U(N)}{IDCG(N)} \)
+    </p>
+        <p>
+        Dimana N adalah banyaknya film yang akan direkomendasikan terhadap user,
+        \( 𝕝(\text{Top}_u(n) \in \text{GT}_U) \) bernilai 1 jika item yang direkomendasikan terdapat dalam
+        data test dan bernilai 0 jika tidak.
+    </p>
+          </div>
+        </div>
+       </div>
+       <br>
+        <div class="row justify-content-md-center" >
+          <div class="col-lg-4 text-center" >
+            <div class="portfolio-info">
+              <h3>{{jdt}}<br>Data Training</h3><br>
+              <div class="auto">
+                {% for n in dt %}
+                  <p>{{n}}</p>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 text-center" >
+            <div class="portfolio-info">
+              <h3>{{jdgt}} <br>Data Test</h3><br>
+              <div class="auto">
+                <!-- {% for n in dgt %}
+                  <p>{{n}}</p>
+                {% endfor %} -->
+                {% for n in range(jdgt) %}
+                  {% if id_dgt[n] in id_irr %}
+                    <p style="background-color: yellow; padding: 3px;">{{dgt[n]}}</p>
+                  {% else %}
+                    <p style="background-color: white; padding: 3px;">{{dgt[n]}}</p>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 text-center" >
+            <div class="portfolio-info">
+              <h3>{{jdr}} <br> Hasil Rekomendasi</h3>
+
+              <span> Berikut hasil rekomendasi film dengan <b>Jumlah Irisan [{{jir}}]</b> : </span>
+              <div class="auto">
+                {% for n in range(jdr) %}
+                  {% if id_dr[n] in id_irr %}
+                    <p style="background-color: yellow; padding: 3px;">{{dr[n]}}</p>
+                  {% else %}
+                    <p style="background-color: white; padding: 3px;">{{dr[n]}}</p>
+                  {% endif %}
+                {% endfor %}
+              </div>
+              <!-- <div class="col text-center" style="padding-top: 20px;">
+                <button class="btn btn-primary btn-lg" onclick="cek()">Show/Hide Detail</button>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+      {% else %}
+      <!-- <h3>{{jdt}}<br>Data</h3><br> -->
+      {% endif %}
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="row d-flex align-items-center">
+        <div class="col-lg-12 text-lg-left text-center">
+        <b>Referensi : </b><br> P. Pirasteh, M.-R. Bouguelia, and K. C. Santosh, “Personalized recommendation: an enhanced hybrid collaborative filtering,” Adv. Comput. Intell., vol. 1, no. 4, 2021, doi: 10.1007/s43674-021-00001-z.</p>
+        </div>
+        <div class="col-lg-6 text-lg-left text-center">
+          <div class="copyright">
+            &copy; Copyright <strong>PKM-AI</strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/vesperr-free-bootstrap-template/ -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
+            <a href="{{url_for('home')}}" class="scrollto">Beranda</a>
+            <a href="{{url_for('home')}}#about" class="scrollto">Tentang</a>
+            <a href="{{url_for('home')}}#metode" class="scrollto">Metode</a>
+            <a href="{{url_for('home')}}#implementasi" class="scrollto">Implementasi</a>
+            <a href="{{url_for('home')}}#contact" class="scrollto">Kontak</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <script>
+    function cek() {
+        var cek = document.getElementById('cek');
+        if (cek.style.display === 'none'){
+            cek.style.display = 'block';
+        }else{
+            cek.style.display = 'none';
+        }
+    }
+  </script>
+  {% endblock %}

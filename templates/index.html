@@ -1,0 +1,399 @@
+{% extends 'navbar.html' %}
+
+{% block head %}
+<head>
+    <meta charset="utf-8" />
+    <title>PKM-AI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+{% endblock %}
+
+{% block body %}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h2 data-aos="fade-up" style="text-align: center; font-family:Comic Sans MS; font-size: 35px;">Sistem Rekomendasi Film yang Menerapkan Metode <i>Hybrid User-based </i> dan<i> Item-based Collaborative Filtering</i> Berbasis Pembobotan</h2>
+          <!-- <h2 data-aos="fade-up" data-aos-delay="400">Sub judul</h2> -->
+          <div data-aos="fade-up" data-aos-delay="800" style="text-align: center;">
+            <a href="#implementasi" class="btn-get-started scrollto">Implementasi</a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
+          <img src="{{ url_for('static', filename='img/hero-img.png') }}" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients clients">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-2 col-md-4 col-6">
+            <img src="{{ url_for('static', filename='img/clients/UTM.png') }}" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6">
+            <img src="{{ url_for('static', filename='img/clients/Logo-PKM.png') }}" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6">
+            <img src="{{ url_for('static', filename='img/clients/UTM.png') }}" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6">
+            <img src="{{ url_for('static', filename='img/clients/Logo-PKM.png') }}" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6">
+            <img src="{{ url_for('static', filename='img/clients/UTM.png') }}" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6">
+            <img src="{{ url_for('static', filename='img/clients/Logo-PKM.png') }}" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Clients Section -->
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Tentang Aplikasi</h2>
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="150" style="text-align:justify;">
+            <p>
+Aplikasi ini merupakan prototype dari simulasi penerapan metode Hybrid User-based dan Item-based Collaborative Filtering yang digabungkan dengan beberapa variasi pembobotan. Dataset yang digunakan untuk training adalah dataset Movilens 100k dan di evaluasi menggunakan NDCG. Pengguna aplikasi bisa melihat hasil rekomendasi berupa hasil akurasi dan list judul film yang direkomendasikan berdasarkan informasi user dan jumlah film rekomendasi yang diinginkan.
+            </p>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-up" data-aos-delay="300">
+              <img src="{{ url_for('static', filename='img/counts-img.svg') }}" alt="" class="img-fluid">
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="metode" class="services">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Metode</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-lg-12 d-flex align-items-stretch ">
+              <!-- <a href="{{url_for('tidak_setara')}}"> -->
+              <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon"><i class="bx bx-check list"></i></div>
+                <h4 class="title"><a>Metode :<a></h4>
+                <p class="description">Metode yang digunakan adalah Hybrid Collaborative Filtering dengan Pembobotan Tidak Setara antara User-based dan Item-based.</p>
+                <p class="description">telah dilakukan uji coba pada bobotnya (ω) seperti dalam tabel di bawah ini:</p>
+                <table class="table">
+                  <thead class="th">
+                      <tr>
+                          <th colspan="9">Matriks Variasi Nilai ω</th>
+                      </tr>
+                      <tr>
+                          <th rowspan="2">Matriks</th>
+                          <th >r<sub>ui</sub><sup>(𝑈𝑅𝐶)</sup></th>
+                          <th >r<sub>ui</sub><sup>(𝑈𝑅𝑃)</sup></th>
+                          <th >r<sub>ui</sub><sup>(𝐼𝑅𝐶)</sup></th>
+                          <th >r<sub>ui</sub><sup>(𝐼𝑅𝑃)</sup></th>
+                          <th >r<sub>ui</sub><sup>(𝑈𝐺𝐶)</sup></th>
+                          <th >r<sub>ui</sub><sup>(𝑈𝐺𝑃)</sup></th>
+                          <th >r<sub>ui</sub><sup>(𝐼𝐺𝐶)</sup></th>
+                          <th >r<sub>ui</sub><sup>(𝐼𝐺𝑃)</sup></th>
+                      </tr>
+                      <tr>
+                          <th>ω<sub>1</sub></th>
+                          <th>ω<sub>2</sub></th>
+                          <th>ω<sub>3</sub></th>
+                          <th>ω<sub>4</sub></th>
+                          <th>ω<sub>5</sub></th>
+                          <th>ω<sub>6</sub></th>
+                          <th>ω<sub>7</sub></th>
+                          <th>ω<sub>8</sub></th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>Setara (Pirasteh et al. 2021)</td>
+                          <td>0.125</td>
+                          <td>0.125</td>
+                          <td>0.125</td>
+                          <td>0.125</td>
+                          <td>0.125</td>
+                          <td>0.125</td>
+                          <td>0.125</td>
+                          <td>0.125</td>
+                      </tr>
+                      <tr>
+                          <td>Lebih dominan<br><span class="italic">User-based (LDUB)</span></td>
+                          <td>0.15</td>
+                          <td>0.15</td>
+                          <td>0.1</td>
+                          <td>0.1</td>
+                          <td>0.15</td>
+                          <td>0.15</td>
+                          <td>0.1</td>
+                          <td>0.1</td>
+                      </tr>
+                      <tr>
+                          <td>Sangat dominan<br><span class="italic">User-based (SDUB)</span></td>
+                          <td>0.2</td>
+                          <td>0.2</td>
+                          <td>0.05</td>
+                          <td>0.05</td>
+                          <td>0.2</td>
+                          <td>0.2</td>
+                          <td>0.05</td>
+                          <td>0.05</td>
+                      </tr>
+                      <tr>
+                          <td>Lebih dominan<br><span class="italic">Item-based (LDIB)</span></td>
+                          <td>0.1</td>
+                          <td>0.1</td>
+                          <td>0.15</td>
+                          <td>0.15</td>
+                          <td>0.1</td>
+                          <td>0.1</td>
+                          <td>0.15</td>
+                          <td>0.15</td>
+                      </tr>
+                      <tr>
+                          <td>Sangat dominan<br><span class="italic">Item-based (SDIB)</span></td>
+                          <td>0.05</td>
+                          <td>0.05</td>
+                          <td>0.2</td>
+                          <td>0.2</td>
+                          <td>0.05</td>
+                          <td>0.05</td>
+                          <td>0.2</td>
+                          <td>0.2</td>
+                      </tr>
+                  </tbody>
+              </table>
+              <p class="description">Dari uji coba nilai (ω) diatas di dapatkan bahwa variasi Sangat Dominan User-based (SDUB) menghasilkan nilai terbaik sehingga akan digunakan dalam implementasi.</p>
+
+              <p class="description"><b>Referensi : </b><br> P. Pirasteh, M.-R. Bouguelia, and K. C. Santosh, “Personalized recommendation: an enhanced hybrid collaborative filtering,” Adv. Comput. Intell., vol. 1, no. 4, 2021, doi: 10.1007/s43674-021-00001-z.</p>
+              </div>
+             <!-- </a> -->
+            </div>
+    </section><!-- End Services Section -->
+
+        <!-- ======= Portfolio Details Section ======= -->
+ <section id="implementasi" class="portfolio-details">
+      <form class="contact100-form validate-form" action="/form_tidak_setara" method="POST">
+      <div class="container box" style="font-family:Comic Sans MS;">
+        <div class="row gy-4">
+          <div class="col-lg-12 text-center">
+            <div class="section-title" data-aos="fade-up">
+              <h2>Implementasi</h2>
+            </div>
+            <p>Metode : <br> Hybrid Collaborative Filtering</p>
+          </div>
+          <div class="col-lg-3"></div>
+          <div class="col-lg-6">
+            <b>Target User :</b>
+            <select class="form-select" aria-label="Default select example" name="target_user" id="target_user" >
+              {% for id_user in id %}
+              <option value="{{id_user}}">{{id_user}}</option>
+              {% endfor %}
+            </select>
+            <b>Jumlah N :</b>
+            <select class="form-select" aria-label="Default select example" name="jumlah_n" id="jumlah_n" >
+              {% for n in range(1,101) %}
+              <option value="{{n}}">{{n}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="col-lg-3"></div>
+          <div class="col-lg-12">
+            <!-- <p> keterangan :</p>
+            <ul>
+              <li>Target user di ambil dari user yang telah melakukan rating dalam file data test</li>
+            </ul> -->
+              
+              <div class="col text-center">
+                <button class="btn btn-primary btn-lg">Rekomendasi</button>
+              </div>
+          </div>
+        </div> 
+      </div>
+      </form>
+    </section>
+    <!-- End Portfolio Details Section -->
+
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>TIM</h2>
+          <p>Berikut Tim PKM-AI:</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="200">
+              <div class="member-img">
+                <img src="{{ url_for('static', filename='img/team/fadetul.jpeg') }}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href="mailto:fadetulfitriyeh.id@gmail.com"><i class="bi bi-envelope"> Email</i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Fadetul Fitriyeh</h4>
+                <span>Back End</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="300">
+              <div class="member-img">
+                <img src="{{ url_for('static', filename='img/team/natul.jpeg') }}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href="mailto:nuskhatulhaqqi27@gmail.com"><i class="bi bi-envelope"> Email</i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Nuskhatul Haqqi</h4>
+                <span>Prototipe</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="400">
+              <div class="member-img">
+                <img src="{{ url_for('static', filename='img/team/layla.jpg ') }}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href="mailto:layla.mfh25@gmail.com"><i class="bi bi-envelope"> Email</i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Layla Mufah Choiriyah</h4>
+                <span>Penulis</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="100">
+              <div class="member-img">
+                <img src="{{ url_for('static', filename='img/team/ibu_Ifada.jpg') }}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href="mailto:noor.ifada@gmail.com"><i class="bi bi-envelope"> Email</i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Noor Ifada</h4>
+                <span>Pembimbing</span>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Hubungi kami</h2>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="contact-about">
+              <h3>PKM-AI</h3>
+              <!-- <p>Berikut merupakan Prototipe untuk </p> -->
+              <div class="social-links">
+                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
+            <div class="info">
+              <div>
+                <i class="ri-map-pin-line"></i>
+                <p>Jl. Raya Telang, Perumahan Telang Inda, Telang, Kec. Kamal, Kabupaten Bangkalan, Jawa Timur 69162</p>
+              </div>
+
+              <div>
+                <i class="ri-mail-send-line"></i>
+                <p>fadetulfitriyeh.id@gmail.com</p>
+              </div>
+
+              <div>
+                <i class="ri-phone-line"></i>
+                <p>+62 831-2300-0952</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="row d-flex align-items-center">
+        <div class="col-lg-6 text-lg-left text-center">
+          <div class="copyright">
+            &copy; Copyright <strong>PKM-AI</strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/vesperr-free-bootstrap-template/ -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
+            <a href="{{url_for('home')}}" class="scrollto">Beranda</a>
+            <a href="{{url_for('home')}}#about" class="scrollto">Tentang</a>
+            <a href="{{url_for('home')}}#metode" class="scrollto">Metode</a>
+            <a href="{{url_for('home')}}#implementasi" class="scrollto">Implementasi</a>
+            <a href="{{url_for('home')}}#contact" class="scrollto">Kontak</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  {% endblock %}
